@@ -1,11 +1,10 @@
 package appengine
 
 import (
+	"github.com/nirasan/go-slack-bot/app"
 	"net/http"
 )
 
 func init() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request){
-		w.Write([]byte("Hello World! Hellow World!"))
-	})
+	http.Handle("/", app.NewAppHandler())
 }
