@@ -55,12 +55,12 @@ func (h *AppHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, err.Error(), http.StatusBadRequest)
 				return
 			}
-			w.WriteHeader(http.StatusOK)
 			log.Debugf(ctx, "Success")
 		}
+		w.WriteHeader(http.StatusOK)
 		return
 	default:
-		w.Write([]byte("Hello world!"))
+		w.WriteHeader(http.StatusOK)
 		break
 	}
 }
